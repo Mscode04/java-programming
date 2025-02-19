@@ -1,0 +1,178 @@
+.headquarters-container {
+  padding: 20px;
+  max-width: 100%;
+  overflow-x: hidden; 
+  background-color: #024579;/* Prevent horizontal overflow for the entire container */
+}
+
+.headquarters-header {
+  display: flex;
+  justify-content: space-between;
+  color: #d6e8ee ;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Allow header to wrap on smaller screens */
+}
+.headquarters-form-group label{
+  color: #d6e8ee;
+}
+.headquarters-add-button {
+  padding: 10px 20px;
+  background-color: #d6e8ee;
+  color: #024579;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px; /* Add margin for smaller screens */
+}
+.headquarters-add-button:hover {
+  padding: 10px 20px;
+  background-color: #d6e8ee;
+  color: #024579;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px; /* Add margin for smaller screens */
+}
+
+.headquarters-form {
+  margin-bottom: 20px;
+}
+
+.headquarters-form-group {
+  margin-bottom: 10px;
+}
+
+.headquarters-input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.staff-form-group {
+  margin-bottom: 10px;
+}
+
+.staff-input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.add-staff-button {
+  padding: 5px 10px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.headquarters-submit-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.headquarters-search {
+  margin-bottom: 20px;
+}
+.div-hide-date{
+  display: none;
+}
+.headquarters-search-input {
+  width: 100%;
+  padding: 8px;
+}
+
+.table-wrapper {
+  overflow-x: auto; /* Enable horizontal scrolling for the table */
+  margin-bottom: 20px;
+  background-color: #d6e8ee;
+  
+  border-radius: 20px;
+}
+button{
+  border-radius: 20px;
+}
+.headquarters-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* Ensure the table has a minimum width */
+}
+
+.headquarters-table th, .headquarters-table td {
+  border: 1px solid #024579;
+  padding: 8px;
+}
+
+.headquarters-table th {
+  background-color: #f2f2f2;
+}
+
+.headquarters-update-button, .headquarters-delete-button, .headquarters-save-button, .headquarters-cancel-button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.headquarters-pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.headquarters-pagination-button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.delete-confirmation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-confirmation-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.delete-pin-input {
+  margin: 10px 0;
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.delete-confirmation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.delete-confirm-button, .delete-cancel-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-confirm-button {
+  background: #ff4d4d;
+  color: white;
+}
+
+.delete-cancel-button {
+  background: #ccc;
+}

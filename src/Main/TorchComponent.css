@@ -1,0 +1,46 @@
+.torch-container {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.torch-container.dark {
+  background-color: #222;
+  color: white;
+}
+
+.torch-container.light {
+  background-color: white;
+  color: black;
+}
+
+.torch-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background-color: #444;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.torch-container.light .torch-body {
+  background-color: yellow;
+}
+
+.torch-icon {
+  font-size: 40px;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.torch-container.light .torch-icon {
+  color: black;
+}

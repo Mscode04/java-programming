@@ -1,0 +1,177 @@
+/* ReportView.css */
+
+/* General Styles */
+.view-report-container {
+  padding: 20px;
+  max-width: 100vw;
+  background-color: #024579;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.view-report-container h1 {
+  text-align: center;
+  color: #d6e8ee;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Loading Container */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-container img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Table Styles */
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  
+  background-color: #fff;
+}
+.view-report-container table{ 
+  border-radius: 20px ;
+  
+}
+.view-report-container th{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.report-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+.report-table th{
+  padding: 12px;
+  text-align: left;
+}
+.report-table .first{
+  padding: 12px;
+  text-align: left;
+  border-right: 1px solid #ddd;
+  border-top-right-radius: 0px;
+}
+.report-table .last{
+  padding: 12px;
+  text-align: left;
+  border-right: 1px solid #ddd;
+  border-left: 0;
+  border-bottom: 0;
+  border-top-right-radius: 0px;
+}
+.Staus-btn button{
+  height: 20px;
+  width: 20px;
+  border: 0;
+  border-radius: 50%;
+}
+.report-table .last2{
+  padding: 12px;
+  text-align: left;
+  
+  border-right: 0;
+  border-bottom: 0;
+  border-top-right-radius: 0px;
+}
+
+
+
+.report-table .first2{
+  border-top-left-radius: 0px;
+}
+
+.report-table th {
+  background-color: #283593;
+  color: #283593;
+  font-weight: bold;
+}
+
+
+
+
+.bg-info {
+  background-color: #e3f2fd !important;
+  color: #000;
+  font-weight: bold;
+}
+
+
+
+/* Actions Container */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.export-btn{
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #283593 !important;
+
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  background-color:#d6e8ee !important;
+}
+
+.export-btn:hover {
+  background-color:#09a0dc ;
+  color: white;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .report-table th,
+  .report-table td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .export-btn{
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .report-table th,
+  .report-table td {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .export-btn{
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}

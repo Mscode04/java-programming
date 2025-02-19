@@ -1,0 +1,115 @@
+.product-container {
+    padding: 20px;
+    height: 100vh;
+    background-color: #024579;
+  }
+  
+  .product-header {
+    display: flex;
+    justify-content: space-between;
+    color:#97cadb ;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .product-add-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .product-form {
+    margin-bottom: 20px;
+  }
+  
+  .product-form-group {
+    margin-bottom: 10px;
+  }
+  
+  .product-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+  }
+  
+  .product-submit-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .product-search {
+    margin-bottom: 20px;
+  }
+  
+  .product-search-input {
+    width: 100%;
+    padding: 8px;
+  }
+  
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .product-table th, .product-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .product-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .product-update-button, .product-delete-button, .product-save-button, .product-cancel-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  .product-pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .product-pagination-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  .product-delete-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .product-delete-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .product-delete-modal-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .product-delete-modal-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+  }

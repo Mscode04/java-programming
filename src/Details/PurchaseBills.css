@@ -1,0 +1,63 @@
+.purchase-bills-container {
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+.purchase-bills-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.purchase-bills-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.purchase-bills-search {
+  flex: 1;
+}
+
+.purchase-bills-select {
+  width: 200px;
+}
+
+.purchase-bills-loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.purchase-bills-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.purchase-bills-table th, .purchase-bills-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.purchase-bills-table th {
+  background: #e0e0e0;
+  font-weight: bold;
+}
+
+.purchase-bills-table tr:hover {
+  background: #f1f1f1;
+}
+
+.purchase-bills-modal {
+  padding: 10px;
+}
+
+.purchase-bills-product {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #fdfdfd;
+  border-radius: 5px;
+}

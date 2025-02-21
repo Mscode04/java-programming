@@ -1,0 +1,62 @@
+.salesBill-container {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .salesBill-title {
+    text-align: center;
+    color: #333;
+  }
+  
+  .salesBill-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .salesBill-input, .salesBill-select, .salesBill-button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .salesBill-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .salesBill-table th, .salesBill-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .salesBill-table th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  .salesBill-total {
+    text-align: right;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .salesBill-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .salesBill-button:hover {
+    background-color: #0056b3;
+  }

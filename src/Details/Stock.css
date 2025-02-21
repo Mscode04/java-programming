@@ -1,0 +1,58 @@
+.stock-container {
+    padding: 24px;
+    background-color: #f9f9f9;
+  }
+  
+  .stock-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .stock-controls {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .stock-search,
+  .stock-filter {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .stock-table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+  }
+  
+  .stock-table th,
+  .stock-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .stock-row:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .stock-view-button {
+    margin-right: 8px;
+  }
+  
+  .stock-delete-button {
+    color: red;
+  }
+  
+  .stock-modal-content p {
+    margin: 8px 0;
+  }
+  
+  .stock-print-button {
+    background-color: #4caf50;
+    color: white;
+  }
+  

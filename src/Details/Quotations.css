@@ -1,0 +1,76 @@
+.quotations-container {
+    padding: 24px;
+    background-color: #f9f9f9;
+  }
+  
+  .quotations-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .quotations-controls {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .quotations-search,
+  .quotations-filter {
+    width: 200px;
+  }
+  
+  .quotations-table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+  }
+  
+  .quotations-table th, .quotations-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .quotations-row:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .quotations-view-button {
+    margin-right: 8px;
+    background-color: #1890ff;
+    color: white;
+  }
+  
+  .quotations-view-button:hover {
+    background-color: #40a9ff;
+  }
+  
+  .quotations-delete-button {
+    background-color: #ff4d4f;
+    color: white;
+  }
+  
+  .quotations-delete-button:hover {
+    background-color: #ff7875;
+  }
+  
+  .quotations-modal-content {
+    padding: 16px;
+  }
+  
+  .quotations-product {
+    border: 1px solid #ddd;
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .quotations-print-button {
+    background-color: #52c41a;
+    color: white;
+  }
+  
+  .quotations-print-button:hover {
+    background-color: #73d13d;
+  }
+  

@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "antd": "^5.24.1",
     "bootstrap": "^5.3.3",
     "cra-template": "1.2.0",
     "cra-template-pwa": "^2.0.0",

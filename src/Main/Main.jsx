@@ -4,24 +4,20 @@ import "./Main.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "../Home/Home";
-import Doctor from "../Forms/Doctor"; // Import other components as needed
-import Staff from "../Forms/Area";
+import SalesBill from "../Details/SalesBill"; // Import other components as needed
+import PurchaseBill from "../Details/PurchaseBill";
 
-import Product from "../Forms/Product";
-import Headquarters from "../Forms/Headquarters";
-import Create from "../Details/Create";
-import BreifReport from "../Details/BreifReport";
-import StaffYearReportsBeif from "../Details/StaffYearReportsBeif";
-import AnnualReport from "../Details/AnnualReport";
-import DoctorList from "../Forms/DoctorList";
-import UpdateDoctor from "../Forms/UpdateDoctor";
-import ReportsList from "../Details/ReportsList";
-import ReportView from "../Details/ReportView";
-import UpdateReport from "../Details/UpdateReport";
+import Product from "../Details/Product";
+import Sellers  from "../Details/Sellers";
+import Quotationsbill from "../Details/Quotationsbill";
+import Quotations from "../Details/Quotations";
 
-import StaffYearReports from "../Details/StaffYearReports";
-import StaffDetails from "../Details/StaffDetails";
-import AdminDetails from "../Details/AdminDetails";
+import Stock from "../Details/Stock";
+import SalesBills from "../Details/SalesBills";
+
+
+import PurchaseBills from "../Details/PurchaseBills";
+import Goldrates from "../Details/Goldrates";
 function Main({ isAuthenticated }) {
   if (!isAuthenticated) {
     return <Navigate to="/" />;
@@ -32,23 +28,21 @@ function Main({ isAuthenticated }) {
       <div className="mainhome_page-content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/doctor" element={<Doctor />} />
-          <Route path="/staff" element={<Staff />} />
-          <Route path="/staff-details" element={<StaffDetails />} />
+          <Route path="/SalesBill" element={<SalesBill />} />
+          <Route path="/PurchaseBill" element={<PurchaseBill />} />
+          <Route path="/PurchaseBills" element={<PurchaseBills />} />
           
-          <Route path="/admin-details" element={<AdminDetails />} />
+          <Route path="/Goldrates" element={<Goldrates />} />
           <Route path="/product" element={<Product />} />
-          <Route path="/headquarters" element={<Headquarters />} />
-          <Route path="/create" element={<Create />} />       
-          <Route path="/annual-report" element={<AnnualReport />} />
-          <Route path="/breif-report" element={<BreifReport />} />
-          <Route path="/doctor-list" element={<DoctorList />} />
-          <Route path="/update-doctor/:id" element={<UpdateDoctor />} />
-          <Route path="/si-report/:id" element={<ReportView />} />
-          <Route path="/sireport-list" element={<ReportsList />} />
-          <Route path="/update-report/:id" element={<UpdateReport />} />
-          <Route path="/annual-report/:staff/:year" element={<StaffYearReports />} />
-          <Route path="/brief-report/:staff/:year" element={<StaffYearReportsBeif />} />
+          <Route path="/Sellers" element={<Sellers />} />
+          <Route path="/Quotationsbill" element={<Quotationsbill />} />       
+          <Route path="/Stock" element={<Stock />} />
+          <Route path="/Quotations" element={<Quotations />} />
+          <Route path="/SalesBills" element={<SalesBills />} />
+         
+          
+          
+        
         </Routes>
       </div>
 
@@ -57,13 +51,11 @@ function Main({ isAuthenticated }) {
         <Link to="/main" className="mainhome_nav-item">
           <i className="bi bi-house-fill"></i>
         </Link>
-        <Link to="/main/create" className="mainhome_nav-item">
+        <Link to="/main/Goldrates" className="mainhome_nav-item">
           <i className="bi bi-plus-circle"></i>
         </Link>
-        <Link to="/main/sireport-list" className="mainhome_nav-item">
-          <i className="bi bi-journal-bookmark-fill"></i>
-        </Link>
-        <Link to="/main/annual-report" className="mainhome_nav-item">
+        
+        <Link to="/main/Stock" className="mainhome_nav-item">
           <i className="bi bi-book-fill"></i>
         </Link>
       </nav>

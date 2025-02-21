@@ -43,13 +43,30 @@ function Product() {
   const handleAddProduct = async (e) => {
     e.preventDefault();
     setLoading(true);
-
+  
     try {
-      await addDoc(collection(db, "Products"), {
+      // Add product to "Products" collection
+      const productRef = await addDoc(collection(db, "Products"), {
         productName,
         productDetails,
       });
-      toast.success('Product added successfully!');
+  
+      const productId = productRef.id; // Get the product's unique ID
+  
+      // Add product to "Stock" collection
+      await addDoc(collection(db, "Stock"), {
+        productId,
+        productName,
+        addedOn: new Date().toISOString(),
+        goldRate: "", // Example value, you can make this dynamic
+        gramWeight: 0,
+        lastUpdated: "",
+        netWeight: "",
+        quantity: 0,
+        stoneWeight: 0,
+      });
+  
+      toast.success('Product and stock entry added successfully!');
       setProductName('');
       setProductDetails('');
       setShowAddForm(false);
@@ -61,6 +78,7 @@ function Product() {
       setLoading(false);
     }
   };
+  
 
   const handleDeleteProduct = async () => {
     if (deletePin === '2012') {

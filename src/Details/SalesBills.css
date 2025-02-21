@@ -1,0 +1,188 @@
+/* Sellers.css */
+.sellers-container {
+    padding: 20px;
+    background: #f9f9f9;
+  }
+  
+  .sellers-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .sellers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .sellers-add-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .sellers-add-button:hover {
+    background: #0056b3;
+  }
+  
+  .sellers-form {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .sellers-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .sellers-form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .sellers-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .sellers-submit-button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .sellers-submit-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .sellers-search {
+    margin-bottom: 20px;
+  }
+  
+  .sellers-search-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .sellers-table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .sellers-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+  }
+  
+  .sellers-table th, .sellers-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .sellers-table th {
+    background: #e0e0e0;
+    font-weight: bold;
+  }
+  
+  .sellers-table tr:hover {
+    background: #f1f1f1;
+  }
+  
+  .sellers-update-button, .sellers-delete-button, .sellers-save-button, .sellers-cancel-button {
+    margin-right: 5px;
+  }
+  
+  .sellers-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .sellers-pagination-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .sellers-pagination-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .sellers-delete-confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sellers-delete-confirmation-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .sellers-delete-pin-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .sellers-delete-confirmation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .sellers-delete-confirm-button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .sellers-delete-cancel-button {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .sellers-back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }

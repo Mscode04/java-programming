@@ -23,68 +23,56 @@ function Home() {
         </button>
       </header>
       <div className="HomeContent">
-        <h2 className="HomeTitle">Dashboard</h2>
+        <h2 className="HomeTitle">Hezza Gold</h2>
 
         <div className="HomeSection">
           <h3 className="SectionTitle">Reports</h3>
           <div className="IconGrid">
-            <Link to="/main/sireport-list" className="IconItem">
-              <i className="bi bi-file-earmark-text-fill"></i>
-              <span>Single Report</span>
+            <Link to="/main/Stock" className="IconItem">
+              <i className="bi bi-box"></i>
+              <span>Stock</span>
             </Link>
-            <Link to="/main/annual-report" className="IconItem">
-              <i className="bi bi-calendar-check-fill"></i>
-              <span>Annual Report</span>
+            <Link to="/main/Quotations" className="IconItem">
+              <i className="bi bi-receipt"></i>
+              <span>Quotations</span>
             </Link>
-            <Link to="/main/breif-report" className="IconItem">
-              <i className="bi bi-calendar-check-fill"></i>
-              <span>Breif Report</span>
+            <Link to="/main/SalesBills" className="IconItem">
+              <i className="bi bi-receipt-cutoff"></i>
+              <span>Sales Bills</span>
             </Link>
-            <Link to="/main/doctor-list" className="IconItem">
-              <i className="bi bi-file-medical-fill"></i>
-              <span>Doctor</span>
+            <Link to="/main/PurchaseBills" className="IconItem">
+              <i className="bi bi-cart-check"></i>
+              <span>Purchase Bills</span>
             </Link>
-            <Link to="/main/admin-details" className="IconItem">
-              <i className="bi bi-person-badge-fill"></i>
-              <span>Admins</span>
-            </Link>
-            <Link to="/main/staff-details" className="IconItem">
-              <i className="bi bi-people-fill"></i>
-              <span>Staffs</span>
-            </Link>
-            <Link to="/main/headquarters" className="IconItem">
-              <i className="bi bi-building"></i>
-              <span>HQ</span>
+            <Link to="/main/Sellers" className="IconItem">
+              <i className="bi bi-people"></i>
+              <span>Sellers</span>
             </Link>
           </div>
         </div>
 
         <div className="HomeSection">
-          <h3 className="SectionTitle">New Registrations</h3>
+          <h3 className="SectionTitle">New Forms</h3>
           <div className="IconGrid">
-            <Link to="/main/create" className="IconItem">
-              <i className="bi bi-file-earmark-plus-fill"></i>
-              <span>Create New Report</span>
+            <Link to="/main/Quotationsbill" className="IconItem">
+              <i className="bi bi-file-earmark-text"></i>
+              <span>Quotation bill</span>
             </Link>
-            <Link to="/main/doctor" className="IconItem">
-              <i className="bi bi-person-plus-fill"></i>
-              <span>Doctor</span>
+            <Link to="/main/SalesBill" className="IconItem">
+              <i className="bi bi-cash"></i>
+              <span>Sales Bill</span>
             </Link>
-            <Link to="/main/staff" className="IconItem">
-              <i className="bi bi-geo-alt-fill"></i>
-              <span>Area</span>
+            <Link to="/main/PurchaseBill" className="IconItem">
+              <i className="bi bi-bag-check"></i>
+              <span>Purchase bill</span>
             </Link>
-            <Link to="/main/admin-details" className="IconItem">
-              <i className="bi bi-person-gear"></i>
-              <span>Admin</span>
+            <Link to="/main/Goldrates" className="IconItem">
+              <i className="bi bi-currency-exchange"></i>
+              <span>Gold Rate</span>
             </Link>
             <Link to="/main/product" className="IconItem">
               <i className="bi bi-box-seam"></i>
               <span>Product</span>
-            </Link>
-            <Link to="/main/headquarters" className="IconItem">
-              <i className="bi bi-buildings"></i>
-              <span>HQ</span>
             </Link>
           </div>
         </div>

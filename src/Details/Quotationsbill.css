@@ -1,72 +1,171 @@
+/* General Styling */
 .qurbil-container {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
   background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 100vw;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .qurbil-title {
   text-align: center;
-  color: #333;
+  color: #2c3e50; /* Dark blue */
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
+/* Form Styling */
 .qurbil-form {
-  display: flex;
-  flex-direction: column;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.qurbil-input, .qurbil-select {
+.qurbil-input {
   width: 100%;
-  padding: 8px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
+  padding: 10px;
+  border: 1px solid #ddd;
   border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
+.qurbil-input:focus {
+  border-color: #3498db; /* Blue */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Table Styling */
 .qurbil-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
-.qurbil-th, .qurbil-td {
-  padding: 8px;
+.qurbil-th,
+.qurbil-td {
+  padding: 12px;
   text-align: left;
-  border: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
 }
 
 .qurbil-th {
-  background-color: #f2f2f2;
-  color: #333;
-}
-
-.qurbil-tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.qurbil-button {
-  padding: 8px 16px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  background-color: #4CAF50;
+  background-color: #3498db; /* Blue */
   color: white;
+  font-weight: bold;
+}
+
+.qurbil-tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Select Dropdown Styling */
+.qurbil-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  outline: none;
+  background-color: white;
+  transition: border-color 0.3s ease;
+}
+
+.qurbil-select:focus {
+  border-color: #3498db; /* Blue */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Button Styling */
+.qurbil-button {
+  background-color: #3498db; /* Blue */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .qurbil-button:hover {
-  background-color: #45a049;
+  background-color: #2980b9; /* Darker blue */
 }
 
+.qurbil-button:active {
+  background-color: #1c5980; /* Even darker blue */
+}
+
+/* Total Price Styling */
 .qurbil-total {
   text-align: right;
   margin-top: 20px;
+  padding: 15px;
+  background-color: #ecf0f1; /* Light gray */
+  border-radius: 8px;
 }
 
 .qurbil-total-price {
-  font-size: 1.2em;
-  color: #333;
+  font-size: 20px;
+  color: #2c3e50; /* Dark blue */
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .qurbil-container {
+    padding: 10px;
+  }
+
+  .qurbil-th,
+  .qurbil-td {
+    padding: 8px;
+  }
+
+  .qurbil-button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .qurbil-title {
+    font-size: 24px;
+  }
+}
+
+/* Print Styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .qurbil-container,
+  .qurbil-container * {
+    visibility: visible;
+  }
+
+  .qurbil-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .qurbil-button {
+    display: none;
+  }
+
+  .qurbil-total {
+    background-color: transparent;
+    padding: 0;
+  }
 }

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+
 import { db } from "../Firebase/config";
-import { collection, getDocs, addDoc } from "firebase/firestore";
-import './Quotationsbill.css'
+import { collection, getDocs, addDoc, doc, getDoc } from "firebase/firestore";
+import './Quotationsbill.css';
+import { useNavigate } from 'react-router-dom';
 function Quotationsbill() {
   const [stockProducts, setStockProducts] = useState([]); // Products from Stock collection
   const [goldRate, setGoldRate] = useState(0);
   const [customerName, setCustomerName] = useState('');
+  const navigate = useNavigate();
   const [productEntries, setProductEntries] = useState([
-    { productId: '', gramWeight: 0, stoneWeight: 0, quantity: 1, discountAmount: 0 },
+    { productId: '', gramWeight: 0, stoneWeight: 0, quantity: 1, discountAmount: 0, makerCharge: 0 },
   ]);
 
   useEffect(() => {
@@ -52,7 +55,7 @@ function Quotationsbill() {
   const addProductEntry = () => {
     setProductEntries([
       ...productEntries,
-      { productId: '', gramWeight: 0, stoneWeight: 0, quantity: 1, discountAmount: 0 },
+      { productId: '', gramWeight: 0, stoneWeight: 0, quantity: 1, discountAmount: 0, makerCharge: 0 },
     ]);
   };
 
@@ -69,7 +72,7 @@ function Quotationsbill() {
   // Calculate net price for a product entry
   const calculateNetPrice = (entry) => {
     const netWeightPrice = calculateNetWeight(entry) * goldRate * entry.quantity;
-    return netWeightPrice - entry.discountAmount;
+    return netWeightPrice - entry.discountAmount + entry.makerCharge; // Include maker charge
   };
 
   // Calculate total net price for all products
@@ -83,7 +86,7 @@ function Quotationsbill() {
 
     if (!customerName || productEntries.some(entry => !entry.productId)) {
       alert("Please enter customer name and select products.");
-      return;
+      return null;
     }
 
     try {
@@ -99,6 +102,7 @@ function Quotationsbill() {
             stoneWeight: entry.stoneWeight,
             quantity: entry.quantity,
             discountAmount: entry.discountAmount,
+            makerCharge: entry.makerCharge, // Include maker charge
             netWeight: calculateNetWeight(entry),
             netPrice: calculateNetPrice(entry),
           };
@@ -108,21 +112,94 @@ function Quotationsbill() {
       };
 
       // Add quotation to Firestore
-      await addDoc(collection(db, "Quotations"), quotationDetails);
+      const quotationRef = await addDoc(collection(db, "Quotations"), quotationDetails);
 
       alert("Quotation Created Successfully!");
 
       // Reset form fields
       setCustomerName('');
-      setProductEntries([{ productId: '', gramWeight: 0, stoneWeight: 0, quantity: 1, discountAmount: 0 }]);
+      setProductEntries([{ productId: '', gramWeight: 0, stoneWeight: 0, quantity: 1, discountAmount: 0, makerCharge: 0 }]);
+
+      return quotationRef.id; // Return the quotation ID
     } catch (error) {
       console.error("Error creating quotation: ", error);
       alert("An error occurred while creating the quotation.");
+      return null;
+    }
+  };
+
+  // Handle print functionality
+  const handlePrint = async () => {
+    const quotationId = await handleSubmit({ preventDefault: () => {} }); // Simulate form submission
+    if (quotationId) {
+      // Fetch the quotation details from Firestore using the quotationId
+      const quotationRef = doc(db, "Quotations", quotationId);
+      const quotationSnap = await getDoc(quotationRef);
+      const quotationData = quotationSnap.data();
+
+      // Generate the printable content
+      const printableContent = `
+        <h2>Quotation</h2>
+        <p><strong>Customer:</strong> ${quotationData.customerName}</p>
+        <p><strong>Date:</strong> ${new Date(quotationData.date).toLocaleString()}</p>
+        <p><strong>Gold Rate:</strong> ${quotationData.goldRate}</p>
+        <table border="1" cellpadding="5" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Gram Weight</th>
+              <th>Stone Weight</th>
+              <th>Quantity</th>
+              <th>Discount Amount</th>
+              <th>Maker Charge</th>
+              <th>Net Weight</th>
+              <th>Net Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${quotationData.products.map(product => `
+              <tr>
+                <td>${product.productName}</td>
+                <td>${product.gramWeight}</td>
+                <td>${product.stoneWeight}</td>
+                <td>${product.quantity}</td>
+                <td>${product.discountAmount}</td>
+                <td>${product.makerCharge}</td>
+                <td>${product.netWeight}</td>
+                <td>$${product.netPrice}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+        <p><strong>Total Net Price:</strong> $${quotationData.totalNetPrice}</p>
+      `;
+
+      // Open a new window and write the printable content
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write(`
+        <html>
+          <head>
+            <title>Quotation</title>
+            <style>
+              body { font-family: Arial, sans-serif; }
+              table { width: 100%; border-collapse: collapse; }
+              th, td { border: 1px solid #000; padding: 8px; text-align: left; }
+            </style>
+          </head>
+          <body>
+            ${printableContent}
+          </body>
+        </html>
+      `);
+      printWindow.document.close();
+      printWindow.print();
     }
   };
 
   return (
     <div className="qurbil-container">
+       <button onClick={() => navigate(-1)} className="back-button" style={{ color: "#d6e8ee" }}><i className="bi bi-arrow-left"></i></button>
+
       <h2 className="qurbil-title">Quotation</h2>
       <form onSubmit={handleSubmit} className="qurbil-form">
         <input
@@ -142,6 +219,7 @@ function Quotationsbill() {
               <th className="qurbil-th">Stone Weight</th>
               <th className="qurbil-th">Quantity</th>
               <th className="qurbil-th">Discount Amount</th>
+              <th className="qurbil-th">Maker Charge</th>
               <th className="qurbil-th">Net Weight</th>
               <th className="qurbil-th">Net Price</th>
               <th className="qurbil-th">Action</th>
@@ -199,6 +277,14 @@ function Quotationsbill() {
                     className="qurbil-input"
                   />
                 </td>
+                <td>
+                  <input
+                    type="number"
+                    value={entry.makerCharge}
+                    onChange={(e) => handleProductChange(index, 'makerCharge', parseFloat(e.target.value))}
+                    className="qurbil-input"
+                  />
+                </td>
                 <td className="qurbil-td">{calculateNetWeight(entry)}g</td>
                 <td className="qurbil-td">${calculateNetPrice(entry)}</td>
                 <td>
@@ -215,6 +301,7 @@ function Quotationsbill() {
           ➕ Add Product
         </button>
         <button type="submit" className="qurbil-button">Create Quotation</button>
+        <button type="button" onClick={handlePrint} className="qurbil-button">Print</button>
       </form>
 
       <div className="qurbil-total">

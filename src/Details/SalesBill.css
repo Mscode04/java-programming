@@ -1,62 +1,166 @@
+/* General Styling */
 .salesBill-container {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .salesBill-title {
-    text-align: center;
-    color: #333;
-  }
-  
-  .salesBill-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .salesBill-input, .salesBill-select, .salesBill-button {
-    width: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 100vw;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.salesBill-title {
+  text-align: center;
+  color: #2e7d32; /* Dark green */
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+.salesBill-form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.salesBill-label {
+  display: block;
+  font-weight: bold;
+  color: #2e7d32; /* Dark green */
+  margin-bottom: 8px;
+}
+
+.salesBill-select,
+.salesBill-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.salesBill-select:focus,
+.salesBill-input:focus {
+  border-color: #2e7d32; /* Dark green */
+  box-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+}
+
+/* Table Styling */
+.salesBill-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.salesBill-table-header,
+.salesBill-table-row td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.salesBill-table-header {
+  background-color: #2e7d32; /* Dark green */
+  color: white;
+  font-weight: bold;
+}
+
+.salesBill-table-row:hover {
+  background-color: #f9f9f9;
+}
+
+/* Button Styling */
+.salesBill-button {
+  background-color: #2e7d32; /* Dark green */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.salesBill-button:hover {
+  background-color: #1b5e20; /* Darker green */
+}
+
+.salesBill-button:active {
+  background-color: #4caf50; /* Lighter green */
+}
+
+/* Total Price Styling */
+.salesBill-total {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2e7d32; /* Dark green */
+}
+
+/* Modal-like Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+}
+
+.modal-header {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2e7d32; /* Dark green */
+  margin-bottom: 15px;
+}
+
+.modal-body {
+  margin-bottom: 20px;
+}
+
+.modal-footer {
+  text-align: right;
+}
+
+.modal-footer .salesBill-button {
+  margin-left: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .salesBill-container {
     padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
   }
-  
-  .salesBill-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  .salesBill-table th, .salesBill-table td {
-    border: 1px solid #ddd;
+
+  .salesBill-table-header,
+  .salesBill-table-row td {
     padding: 8px;
-    text-align: left;
   }
-  
-  .salesBill-table th {
-    background-color: #f2f2f2;
-    color: #333;
-  }
-  
-  .salesBill-total {
-    text-align: right;
-    font-size: 1.2rem;
-    color: #333;
-  }
-  
+
   .salesBill-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    padding: 6px 10px;
+    font-size: 12px;
   }
-  
-  .salesBill-button:hover {
-    background-color: #0056b3;
+
+  .salesBill-total {
+    font-size: 16px;
   }
+}

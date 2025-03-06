@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 function Goldrates() {
   const [goldPrices, setGoldPrices] = useState([]);
   const [loading, setLoading] = useState(true);
+  
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [newGoldPrice, setNewGoldPrice] = useState({
     amount: "",

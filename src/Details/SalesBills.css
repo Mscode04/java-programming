@@ -1,188 +1,244 @@
-/* Sellers.css */
-.sellers-container {
-    padding: 20px;
-    background: #f9f9f9;
-  }
-  
-  .sellers-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .sellers-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .sellers-add-button {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .sellers-add-button:hover {
-    background: #0056b3;
-  }
-  
-  .sellers-form {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  .sellers-form-group {
-    margin-bottom: 15px;
-  }
-  
-  .sellers-form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .sellers-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .sellers-submit-button {
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .sellers-submit-button:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .sellers-search {
-    margin-bottom: 20px;
-  }
-  
-  .sellers-search-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .sellers-table-wrapper {
-    overflow-x: auto;
-  }
-  
-  .sellers-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-  }
-  
-  .sellers-table th, .sellers-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .sellers-table th {
-    background: #e0e0e0;
-    font-weight: bold;
-  }
-  
-  .sellers-table tr:hover {
-    background: #f1f1f1;
-  }
-  
-  .sellers-update-button, .sellers-delete-button, .sellers-save-button, .sellers-cancel-button {
-    margin-right: 5px;
-  }
-  
-  .sellers-pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .sellers-pagination-button {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 5px;
-  }
-  
-  .sellers-pagination-button:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .sellers-delete-confirmation-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .sellers-delete-confirmation-content {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  .sellers-delete-pin-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  
-  .sellers-delete-confirmation-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .sellers-delete-confirm-button {
-    background: #dc3545;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .sellers-delete-cancel-button {
-    background: #6c757d;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .sellers-back-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
+/* Main Container */
+.salesBills-container {
+  padding: 24px;
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 100vw;
+  margin: 0 auto;
+}
+
+/* Title */
+.salesBills-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Controls (Search and Filter) */
+.salesBills-controls {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.salesBills-controls .ant-input,
+.salesBills-controls .ant-select {
+  width: 250px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+}
+
+.salesBills-controls .ant-input:focus,
+.salesBills-controls .ant-select:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* Table */
+.salesBills-table {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.salesBills-table th,
+.salesBills-table td {
+  padding: 16px;
+  border: 1px solid #e8e8e8;
+  text-align: left;
+  font-size: 14px;
+}
+
+.salesBills-table th {
+  background-color: #fafafa;
+  font-weight: 600;
+  color: #333;
+}
+
+.salesBills-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.salesBills-table td {
+  color: #555;
+}
+
+/* Buttons in Table */
+.salesBills-table .ant-btn {
+  margin-right: 8px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.salesBills-table .ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.salesBills-table .ant-btn-danger {
+  background-color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+
+.salesBills-table .ant-btn-primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.salesBills-table .ant-btn-danger:hover {
+  background-color: #ff7875;
+  border-color: #ff7875;
+}
+
+/* Modal Styling */
+.salesBills-modal .ant-modal-header {
+  background-color: #fafafa;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 16px 24px;
+}
+
+.salesBills-modal .ant-modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.salesBills-modal .ant-modal-body {
+  padding: 24px;
+  width: 1000px;
+  font-size: 14px;
+  color: #555;
+}
+
+.salesBills-modal .ant-modal-footer {
+  border-top: 1px solid #e8e8e8;
+  padding: 16px 24px;
+  text-align: right;
+}
+
+.salesBills-modal .ant-btn {
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.salesBills-modal .ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.salesBills-modal .ant-btn-primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.salesBills-modal .ant-btn-default {
+  border-color: #d9d9d9;
+}
+
+.salesBills-modal .ant-btn-default:hover {
+  border-color: #40a9ff;
+  color: #40a9ff;
+}
+
+/* Modal Styling */
+.salesBills-modal .ant-modal {
+  max-width: 800px; /* Adjust the width as needed */
+  width: 90% !important; /* Ensure it doesn't exceed 90% of the screen width */
+}
+
+.salesBills-modal .ant-modal-header {
+  background-color: #fafafa;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 16px 24px;
+}
+
+.salesBills-modal .ant-modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.salesBills-modal .ant-modal-body {
+  padding: 24px;
+  font-size: 14px;
+  color: #555;
+}
+
+.salesBills-modal .ant-modal-footer {
+  border-top: 1px solid #e8e8e8;
+  padding: 16px 24px;
+  text-align: right;
+}
+
+.salesBills-modal .ant-btn {
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.salesBills-modal .ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.salesBills-modal .ant-btn-primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.salesBills-modal .ant-btn-default {
+  border-color: #d9d9d9;
+}
+
+.salesBills-modal .ant-btn-default:hover {
+  border-color: #40a9ff;
+  color: #40a9ff;
+}
+
+/* Modal Table */
+.salesBills-modal table {
+  width: 700px;
+  margin-top: 16px;
+  border-collapse: collapse;
+}
+
+.salesBills-modal table th,
+.salesBills-modal table td {
+  padding: 12px;
+  border: 1px solid #e8e8e8;
+  text-align: left;
+  font-size: 14px;
+}
+
+.salesBills-modal table th {
+  background-color: #fafafa;
+  font-weight: 600;
+  color: #333;
+}
+
+.salesBills-modal table td {
+  color: #555;
+}
+
+.salesBills-modal table tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Modal Paragraphs */
+.salesBills-modal p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.salesBills-modal strong {
+  color: #333;
+}

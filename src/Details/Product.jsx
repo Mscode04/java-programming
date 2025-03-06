@@ -12,6 +12,7 @@ function Product() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showAddForm, setShowAddForm] = useState(false);
+  
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [deletePin, setDeletePin] = useState('');
   const [productToDelete, setProductToDelete] = useState(null);

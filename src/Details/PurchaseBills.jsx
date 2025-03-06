@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../Firebase/config";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc, getDoc } from "firebase/firestore";
 import { Button, Input, Select, Modal, Spin } from "antd";
 import "./PurchaseBills.css";
-
+import { useNavigate } from 'react-router-dom';
 const PurchaseBills = () => {
   const [bills, setBills] = useState([]);
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
   const [filter, setFilter] = useState("");
   const [modalData, setModalData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -41,6 +42,68 @@ const PurchaseBills = () => {
     }
   };
 
+  const handlePrint = async (billId) => {
+    const billRef = doc(db, "PurchaseBills", billId);
+    const billSnap = await getDoc(billRef);
+    const billData = billSnap.data();
+
+    const printableContent = `
+      <h2>Purchase Bill</h2>
+      <p><strong>Date:</strong> ${billData.date ? new Date(billData.date).toLocaleDateString() : "N/A"}</p>
+      <p><strong>Gold Rate:</strong> ${billData.goldRate || "N/A"}</p>
+      <p><strong>Net Price:</strong> ${billData.netPrice || "N/A"}</p>
+      <p><strong>Seller ID:</strong> ${billData.sellerId || "N/A"}</p>
+      <h3>Products</h3>
+      <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Product ID</th>
+            <th>Quantity</th>
+            <th>Gram Weight</th>
+            <th>Net Weight</th>
+            <th>Stone Weight</th>
+            <th>Discount Amount</th>
+            <th>Net Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${billData.products?.map((product) => `
+            <tr>
+              <td>${product.productName || "N/A"}</td>
+              <td>${product.productId || "N/A"}</td>
+              <td>${product.quantity || 0}</td>
+              <td>${product.gramWeight || 0}</td>
+              <td>${product.netWeight || 0}</td>
+              <td>${product.stoneWeight || 0}</td>
+              <td>${product.discountAmount || 0}</td>
+              <td>${product.netPrice || 0}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
+
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Purchase Bill</title>
+          <style>
+            body { font-family: Arial, sans-serif; }
+            table { width: 100%; border-collapse: collapse; }
+            th, td { border: 1px solid #000; padding: 8px; text-align: left; }
+          </style>
+        </head>
+        <body>
+          ${printableContent}
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.print();
+  };
+
   const filteredBills = bills.filter(
     (bill) =>
       (filter === "" || (bill.products && bill.products.some((p) => p.productId === filter))) &&
@@ -49,9 +112,11 @@ const PurchaseBills = () => {
 
   return (
     <div className="purchase-bills-container">
+            <button onClick={() => navigate(-1)} className="back-button" style={{ color: "#d6e8ee" }}><i className="bi bi-arrow-left"></i></button>
+
       <h1 className="purchase-bills-title">Purchase Bills</h1>
 
-      <div className="purchase-bills-filters">
+      <div className="purchase-bills-controls">
         <Input
           placeholder="Search by Seller Name"
           value={search}
@@ -102,6 +167,7 @@ const PurchaseBills = () => {
                   <Button onClick={() => handleDelete(bill.id)} danger>
                     Delete
                   </Button>
+                  <Button onClick={() => handlePrint(bill.id)}>Print</Button>
                 </td>
               </tr>
             ))}
@@ -114,10 +180,19 @@ const PurchaseBills = () => {
         title="Purchase Bill Details"
         open={!!modalData}
         onCancel={() => setModalData(null)}
-        footer={[<Button key="print" onClick={() => window.print()}>Print</Button>]}
+        footer={[
+          <Button key="print" type="primary" onClick={() => handlePrint(modalData.id)}>
+            Print
+          </Button>,
+          <Button key="close" onClick={() => setModalData(null)}>
+            Close
+          </Button>,
+        ]}
+        width={800}
+        className="purchase-bills-modal"
       >
         {modalData && (
-          <div className="purchase-bills-modal">
+          <div>
             <p><strong>Date:</strong> {modalData.date ? new Date(modalData.date).toLocaleDateString() : "N/A"}</p>
             <p><strong>Gold Rate:</strong> {modalData.goldRate || "N/A"}</p>
             <p><strong>Net Price:</strong> {modalData.netPrice || "N/A"}</p>
@@ -125,18 +200,34 @@ const PurchaseBills = () => {
 
             <h3>Products:</h3>
             {Array.isArray(modalData.products) && modalData.products.length > 0 ? (
-              modalData.products.map((product, index) => (
-                <div key={index} className="purchase-bills-product">
-                  <p><strong>Product Name:</strong> {product.productName || "N/A"}</p>
-                  <p><strong>Product ID:</strong> {product.productId || "N/A"}</p>
-                  <p><strong>Quantity:</strong> {product.quantity || 0}</p>
-                  <p><strong>Gram Weight:</strong> {product.gramWeight || 0}</p>
-                  <p><strong>Net Weight:</strong> {product.netWeight || 0}</p>
-                  <p><strong>Stone Weight:</strong> {product.stoneWeight || 0}</p>
-                  <p><strong>Discount Amount:</strong> {product.discountAmount || 0}</p>
-                  <p><strong>Net Price:</strong> {product.netPrice || 0}</p>
-                </div>
-              ))
+              <table border="1" cellPadding="5" cellSpacing="0">
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Product ID</th>
+                    <th>Quantity</th>
+                    <th>Gram Weight</th>
+                    <th>Net Weight</th>
+                    <th>Stone Weight</th>
+                    <th>Discount Amount</th>
+                    <th>Net Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {modalData.products.map((product, index) => (
+                    <tr key={index}>
+                      <td>{product.productName || "N/A"}</td>
+                      <td>{product.productId || "N/A"}</td>
+                      <td>{product.quantity || 0}</td>
+                      <td>{product.gramWeight || 0}</td>
+                      <td>{product.netWeight || 0}</td>
+                      <td>{product.stoneWeight || 0}</td>
+                      <td>{product.discountAmount || 0}</td>
+                      <td>{product.netPrice || 0}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             ) : (
               <p>No products available.</p>
             )}

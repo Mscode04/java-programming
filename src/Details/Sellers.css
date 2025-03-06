@@ -7,7 +7,7 @@
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 1200px;
+  max-width: 100vw;
   margin: 0 auto;
 }
 
@@ -22,20 +22,22 @@
 .sellers-title {
   font-size: 24px;
   color: #333;
+  font-weight: bold;
 }
 
 .sellers-add-button {
-  background-color: #28a745;
+  background-color: #28a745; /* Green */
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .sellers-add-button:hover {
-  background-color: #218838;
+  background-color: #218838; /* Darker green */
 }
 
 /* Form styling */
@@ -64,20 +66,28 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.sellers-input:focus {
+  border-color: #007bff; /* Blue */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 .sellers-submit-button {
-  background-color: #007bff;
+  background-color: #007bff; /* Blue */
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .sellers-submit-button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Darker blue */
 }
 
 .sellers-submit-button:disabled {
@@ -96,6 +106,13 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.sellers-search-input:focus {
+  border-color: #007bff; /* Blue */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Table styling */
@@ -139,42 +156,43 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
 .sellers-update-button {
-  background-color: #ffc107;
+  background-color: #ffc107; /* Yellow */
   color: #333;
 }
 
 .sellers-update-button:hover {
-  background-color: #e0a800;
+  background-color: #e0a800; /* Darker yellow */
 }
 
 .sellers-delete-button {
-  background-color: #dc3545;
+  background-color: #dc3545; /* Red */
   color: white;
 }
 
 .sellers-delete-button:hover {
-  background-color: #c82333;
+  background-color: #c82333; /* Darker red */
 }
 
 .sellers-save-button {
-  background-color: #28a745;
+  background-color: #28a745; /* Green */
   color: white;
 }
 
 .sellers-save-button:hover {
-  background-color: #218838;
+  background-color: #218838; /* Darker green */
 }
 
 .sellers-cancel-button {
-  background-color: #6c757d;
+  background-color: #6c757d; /* Gray */
   color: white;
 }
 
 .sellers-cancel-button:hover {
-  background-color: #5a6268;
+  background-color: #5a6268; /* Darker gray */
 }
 
 /* Pagination styling */
@@ -185,7 +203,7 @@
 }
 
 .sellers-pagination-button {
-  background-color: #007bff;
+  background-color: #007bff; /* Blue */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -193,10 +211,11 @@
   cursor: pointer;
   font-size: 16px;
   margin: 0 5px;
+  transition: background-color 0.3s ease;
 }
 
 .sellers-pagination-button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Darker blue */
 }
 
 .sellers-pagination-button:disabled {
@@ -238,6 +257,13 @@
   border-radius: 5px;
   font-size: 16px;
   margin-bottom: 15px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.delete-pin-input:focus {
+  border-color: #007bff; /* Blue */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 .delete-confirmation-buttons {
@@ -247,31 +273,33 @@
 }
 
 .delete-confirm-button {
-  background-color: #dc3545;
+  background-color: #dc3545; /* Red */
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .delete-confirm-button:hover {
-  background-color: #c82333;
+  background-color: #c82333; /* Darker red */
 }
 
 .delete-cancel-button {
-  background-color: #6c757d;
+  background-color: #6c757d; /* Gray */
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .delete-cancel-button:hover {
-  background-color: #5a6268;
+  background-color: #5a6268; /* Darker gray */
 }
 
 /* Back button styling */
@@ -281,8 +309,30 @@
   font-size: 24px;
   cursor: pointer;
   margin-bottom: 20px;
+  color: #007bff; /* Blue */
 }
 
 .back-button:hover {
-  color: #007bff;
+  color: #0056b3; /* Darker blue */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sellers-container {
+    padding: 10px;
+  }
+
+  .sellers-table th,
+  .sellers-table td {
+    padding: 8px;
+  }
+
+  .sellers-button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .sellers-title {
+    font-size: 20px;
+  }
 }
